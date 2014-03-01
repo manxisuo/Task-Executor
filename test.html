@@ -1,0 +1,25 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<script type="text/javascript" src="sync-task.js"></script>
+	<script type="text/javascript">
+		var task = new Task(function(ctx, callback) {
+			console.log(Math.random());
+			callback();
+		});
+		
+		var queue = TaskQueue.getInstance();
+		queue.log('start').add(task);
+		queue.wait(1000).log('after 1 secod').add(task);
+		queue.wait(3000).log('after 3 second').add(task);
+		
+		queue.execute();
+	
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
